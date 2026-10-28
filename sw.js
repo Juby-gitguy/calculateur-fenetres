@@ -1,6 +1,6 @@
 // Service worker : Mesure Pro hors ligne
-const CACHE = 'mesure-pro-v1.0.9';
-const APP_FILES = ['./', './index.html', './manifest.json', './icon-512.png'];
+const CACHE = 'mesure-pro-v1.0.11';
+const APP_FILES = ['./', './index.html', './manifest.json', './icon-512.png', './icon-192.png'];
 // Ressources externes mises en cache à la première ouverture avec Internet
 const RUNTIME_HOSTS = ['cdnjs.cloudflare.com'];
 
