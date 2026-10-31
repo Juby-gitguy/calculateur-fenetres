@@ -765,6 +765,48 @@ svg text, .glass-measure, .glass-measure *, .measure-value, .measure-value *,
 #accessory-presets-card .accessory-preset-info small{font-size:11px;color:var(--mut)}
 @media(max-width:380px){#accessory-presets-card .preset-accordion>summary{padding:11px;font-size:12.5px}#accessory-presets-card .accessory-preset-row{flex-wrap:wrap}}
 
+
+/* Photos de baie — accordéon compact, styles isolés des boutons globaux */
+.window-photo-accordion,.window-photo-detail{border:1px solid var(--line);border-radius:14px;background:var(--card);overflow:hidden}
+.window-photo-accordion{padding:0 13px;margin:4px 0 16px}
+.window-photo-accordion>summary,.window-photo-detail>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer;padding:12px 0;min-height:48px;box-sizing:border-box}
+.window-photo-accordion>summary::-webkit-details-marker,.window-photo-detail>summary::-webkit-details-marker{display:none}
+.window-photo-summary{display:flex;flex-direction:column;gap:3px;min-width:0}.window-photo-summary strong{font-size:14px;font-weight:700;color:var(--text)}.window-photo-summary small{font-size:11px;color:var(--mut)}
+.window-photo-chevron{display:block;flex:0 0 9px;width:9px;height:9px;border-right:2px solid var(--mut);border-bottom:2px solid var(--mut);transform:rotate(45deg);transition:transform .18s ease;margin:0 4px 5px 0}
+.window-photo-accordion[open]>summary .window-photo-chevron,.window-photo-detail[open]>summary .window-photo-chevron{transform:rotate(225deg);margin-bottom:0}
+.window-photo-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;padding:0 0 11px}
+.window-photo-btn,.window-photo-btn:focus,.window-photo-btn:active{appearance:none!important;-webkit-appearance:none!important;border:1px solid var(--line)!important;border-radius:10px!important;padding:10px 8px!important;font-family:inherit!important;font-size:12px!important;font-weight:650!important;color:var(--text)!important;background:var(--bg)!important;box-shadow:none!important;min-height:42px!important;transform:none!important;outline-offset:2px;cursor:pointer}
+.window-photo-btn.photo-camera{background:transparent!important;border-color:var(--line)!important;color:var(--text)!important}
+.window-photo-btn.photo-gallery{background:var(--card)!important;border-color:var(--line)!important;color:var(--text)!important}
+.window-photo-preview{display:flex;flex-wrap:wrap;gap:8px;padding:0 0 12px}.window-photo-thumb{width:68px;height:68px;object-fit:cover;border-radius:9px;border:1px solid var(--line)}
+.window-photo-empty{font-size:11px;color:var(--mut);padding:0 0 10px}.window-photo-detail{margin:16px 0 12px;padding:0 13px}.window-photo-detail>summary{padding:12px 0}.window-photo-detail .window-photo-actions{padding:0 0 10px}.window-photo-detail .window-photo-preview{padding-bottom:12px}
+/* Fiche fenêtre : espacement entre les blocs techniques */
+#wdv .card>h3{margin-top:24px!important;margin-bottom:9px!important}
+#wdv .card>h3:first-of-type{margin-top:18px!important}
+#wdv .card>h3+*{margin-bottom:18px}
+.window-photo-thumb-wrap{position:relative}.window-photo-remove{position:absolute;top:-6px;right:-6px;width:22px;height:22px;border:0;border-radius:50%;background:#d94b55;color:#fff;font-size:15px;line-height:20px}
+/* V17 — espacement entre schéma et récapitulatif (détail fenêtre) */
+#wdv .dg.sk{display:grid!important;grid-template-columns:minmax(0,1fr);row-gap:18px;column-gap:0;align-items:start}
+#wdv .dg.sk>.card{margin:0!important;min-width:0}
+@media(min-width:900px){#wdv .dg.sk{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);column-gap:20px}}
+</style>
+<meta name="app-version" content="1.0.1.16"><title>MESURE PRO 1.0.1.16</title>
+
+<style id="photo-carousel-styles">
+.window-photo-remove{display:none!important}
+.window-photo-thumb-wrap{position:relative;cursor:pointer;display:inline-flex}
+.window-photo-thumb{width:68px;height:68px;object-fit:cover;border-radius:10px;border:1px solid var(--line);display:block}
+#photo-viewer{position:fixed;inset:0;z-index:99999;background:rgba(5,10,16,.96);display:none;align-items:center;justify-content:center;padding:18px;box-sizing:border-box}
+#photo-viewer.open{display:flex}
+#photo-viewer .pv-shell{width:min(100%,760px);display:flex;flex-direction:column;align-items:center;gap:14px}
+#photo-viewer .pv-top{width:100%;display:flex;align-items:center;justify-content:space-between;color:#fff;font-size:13px}
+#photo-viewer .pv-stage{width:100%;height:min(68vh,680px);display:flex;align-items:center;justify-content:center;position:relative;touch-action:pan-y}
+#photo-viewer .pv-image{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px;user-select:none;-webkit-user-drag:none}
+#photo-viewer .pv-nav{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(20,30,40,.75);color:#fff;font-size:25px;display:grid;place-items:center}
+#photo-viewer .pv-prev{left:4px}#photo-viewer .pv-next{right:4px}
+#photo-viewer .pv-actions{display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap}
+#photo-viewer button{font:inherit;cursor:pointer}#photo-viewer .pv-delete{border:1px solid rgba(255,100,100,.55);background:transparent;color:#ffb4b4;border-radius:10px;padding:10px 18px}#photo-viewer .pv-close{border:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;border-radius:10px;padding:10px 18px}
+#photo-viewer .pv-count{color:#cbd5df;font-size:12px;min-width:48px;text-align:center}
 </style>
 </head>
 <body>
@@ -812,7 +854,9 @@ svg text, .glass-measure, .glass-measure *, .measure-value, .measure-value *,
 <div class="st" data-s="2"><h2>Dimensions de la baie</h2>
 <div class="fq" id="fq"></div>
 <div class="two"><div class="fld"><label>Largeur (HeadSill)</label><input class="mi" id="f-L" data-v="meas" data-req="1" inputmode="text" autocomplete="off"></div><div class="fld"><label>Hauteur (Jamb)</label><input class="mi" id="f-H" data-v="meas" data-req="1" inputmode="text" autocomplete="off"></div></div>
-<div class="hint uh" style="margin:-6px 0 14px"></div><div class="fld" id="jal-width-control" hidden><label>Largeur choisie de chaque lame de verre</label><select id="f-gw-choice"></select><div class="hint" id="jal-width-hint">La largeur est calculée automatiquement, mais vous pouvez aussi choisir manuellement une largeur paire de 24 à 60 pouces.</div></div>
+<div class="hint uh" style="margin:-6px 0 14px"></div>
+<details class="window-photo-accordion" id="window-photo-accordion"><summary><span class="window-photo-summary"><strong>Photo de la baie</strong><small>Associez une ou plusieurs photos à cette fenêtre.</small></span><span class="window-photo-chevron" aria-hidden="true"></span></summary><div class="window-photo-actions"><button type="button" class="window-photo-btn photo-camera" id="photo-camera-btn">Prendre une photo</button><button type="button" class="window-photo-btn photo-gallery" id="photo-gallery-btn">Choisir une photo</button><input type="file" id="photo-camera-input" accept="image/*" capture="environment" hidden><input type="file" id="photo-gallery-input" accept="image/*" multiple hidden></div><div class="window-photo-preview" id="window-photo-preview"></div></details>
+<div class="fld" id="jal-width-control" hidden><label>Largeur choisie de chaque lame de verre</label><select id="f-gw-choice"></select><div class="hint" id="jal-width-hint">La largeur est calculée automatiquement, mais vous pouvez aussi choisir manuellement une largeur paire de 24 à 60 pouces.</div></div>
 <div class="fld"><label>Nombre de fenêtres identiques</label><input id="f-qty" data-v="int" data-req="1" inputmode="numeric" autocomplete="off"></div>
 <div id="arc" hidden><h2 style="margin-top:22px">Arcade</h2>
 <div class="fld"><label>Longueur plaque</label><select id="f-aP"></select></div>
@@ -1253,11 +1297,36 @@ function editWindowMeasures(){
   } catch(err) { toast(err.message||'Vérifiez les mesures saisies.'); return false; }
  });
 }
+const PHOTO_DB='mesure_pro_window_photos_v1';
+const PHOTO_FALLBACK_KEY='mesure_pro_photos_fallback_v1';
+const PHOTO_MEM=[];let PHOTO_MEM_ID=1;
+function photoDb(){return new Promise((resolve,reject)=>{if(!window.indexedDB){reject(new Error('IndexedDB indisponible'));return}let req;try{req=window.indexedDB.open(PHOTO_DB,1)}catch(e){reject(e);return}req.onupgradeneeded=()=>{const db=req.result;if(!db.objectStoreNames.contains('photos'))db.createObjectStore('photos',{keyPath:'id',autoIncrement:true})};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error||new Error('Ouverture du stockage impossible'));req.onblocked=()=>reject(new Error('Stockage bloqué'))})}
+function photoFallbackRead(){try{return JSON.parse(localStorage.getItem(PHOTO_FALLBACK_KEY)||'[]')}catch(e){return[]}}
+function photoFallbackWrite(items){try{localStorage.setItem(PHOTO_FALLBACK_KEY,JSON.stringify(items));return true}catch(e){return false}}
+function photoToData(file){return new Promise((resolve,reject)=>{const fr=new FileReader();fr.onload=()=>resolve(String(fr.result));fr.onerror=()=>reject(fr.error||new Error('Lecture photo impossible'));fr.readAsDataURL(file)})}
+async function photoCompress(file){try{if(!('createImageBitmap'in window))return file;const bmp=await createImageBitmap(file);const scale=Math.min(1,1600/Math.max(bmp.width,bmp.height));const c=document.createElement('canvas');c.width=Math.max(1,Math.round(bmp.width*scale));c.height=Math.max(1,Math.round(bmp.height*scale));const ctx=c.getContext('2d');ctx.drawImage(bmp,0,0,c.width,c.height);bmp.close&&bmp.close();return await new Promise(resolve=>c.toBlob(b=>resolve(b||file),'image/jpeg',.78))}catch(e){return file}}
+async function photoAll(key){if(!key)return[];let db;try{db=await photoDb();const rows=await new Promise((resolve,reject)=>{const tx=db.transaction('photos','readonly'),req=tx.objectStore('photos').getAll();req.onsuccess=()=>resolve(req.result||[]);req.onerror=()=>reject(req.error);tx.onerror=()=>reject(tx.error)});return rows.filter(x=>x.key===key).concat(photoFallbackRead().filter(x=>x.key===key).map(x=>({...x,blob:dataURLBlob(x.data)})),PHOTO_MEM.filter(x=>x.key===key))}catch(e){return photoFallbackRead().filter(x=>x.key===key).map(x=>({...x,blob:dataURLBlob(x.data)})).concat(PHOTO_MEM.filter(x=>x.key===key))}}
+function dataURLBlob(data){try{const parts=data.split(','),mime=(parts[0].match(/:(.*?);/)||[])[1]||'image/jpeg',bin=atob(parts[1]),arr=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)arr[i]=bin.charCodeAt(i);return new Blob([arr],{type:mime})}catch(e){return new Blob([],{type:'image/jpeg'})}}
+async function photoAdd(key,file){if(!key||!file)throw new Error('Photo manquante');const blob=await photoCompress(file);let db;try{db=await photoDb();await new Promise((resolve,reject)=>{const tx=db.transaction('photos','readwrite');tx.objectStore('photos').add({key,blob,name:file.name||'Photo',created:Date.now(),type:blob.type||file.type||'image/jpeg'});tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error||new Error('Enregistrement annulé'))});return}catch(idbError){/* repli durable localStorage */}const id='local_'+Date.now()+'_'+Math.random().toString(36).slice(2,8);try{const data=await photoToData(blob);const rows=photoFallbackRead();rows.push({id,key,data,name:file.name||'Photo',created:Date.now(),type:blob.type||file.type||'image/jpeg'});if(photoFallbackWrite(rows))return}catch(e){}PHOTO_MEM.push({id:PHOTO_MEM_ID++,key,blob,name:file.name||'Photo',created:Date.now(),type:blob.type||file.type||'image/jpeg'});if(!PHOTO_MEM.length)throw new Error('Enregistrement photo impossible')}
+async function photoDelete(id){let db;try{db=await photoDb();await new Promise((resolve,reject)=>{const tx=db.transaction('photos','readwrite');tx.objectStore('photos').delete(Number(id));tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)})}catch(e){}const rows=photoFallbackRead();photoFallbackWrite(rows.filter(x=>String(x.id)!==String(id)));const i=PHOTO_MEM.findIndex(x=>String(x.id)===String(id));if(i>=0)PHOTO_MEM.splice(i,1)}
+function photoMarkup(items,removable=false){return items.length?items.map(x=>{const u=URL.createObjectURL(x.blob);return `<span class="window-photo-thumb-wrap"><img class="window-photo-thumb" src="${u}" alt="Photo de la baie">${removable?`<button type="button" class="window-photo-remove" data-photo-remove="${x.id}" aria-label="Supprimer la photo">×</button>`:''}</span>`}).join(''):'<small class="window-photo-empty">Aucune photo ajoutée pour le moment.</small>'}
+async function refreshFormPhotos(){const box=$('#window-photo-preview');if(!box)return;try{const items=await photoAll(S._photoKey);box.innerHTML=photoMarkup(items)}catch(e){box.innerHTML='<small class="window-photo-empty">Impossible de charger les photos.</small>'}}
+async function refreshDetailPhotos(){const box=$('#window-photo-detail-preview'),key=box?.dataset.photoKey;if(!box||!key)return;try{const items=await photoAll(key);box.innerHTML=photoMarkup(items,true)}catch(e){box.innerHTML='<small class="window-photo-empty">Impossible de charger les photos.</small>'}}
+function initWindowPhotoKey(){if(!S._photoKey)S._photoKey='win_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,9)}
+async function attachWindowPhoto(file){if(!file)return;const type=file.type||(/^image\//i.test(file.name||'')?'image/jpeg':'');if(!type.startsWith('image/')){toast('Choisissez un fichier image.');return}if(file.size>20*1024*1024){toast('La photo est trop volumineuse (maximum 20 Mo).');return}initWindowPhotoKey();try{await photoAdd(S._photoKey,file);await refreshFormPhotos()}catch(e){toast('Impossible d’enregistrer cette photo. Vérifiez l’espace disponible.');}}
+$('#photo-camera-btn')?.addEventListener('click',()=>$('#photo-camera-input')?.click());
+$('#photo-gallery-btn')?.addEventListener('click',()=>$('#photo-gallery-input')?.click());
+$('#photo-camera-input')?.addEventListener('change',async e=>{await attachWindowPhoto(e.target.files?.[0]);e.target.value=''});
+$('#photo-gallery-input')?.addEventListener('change',async e=>{for(const file of Array.from(e.target.files||[]))await attachWindowPhoto(file);e.target.value=''});
+$('#window-photo-preview')?.addEventListener('click',e=>{const b=e.target.closest('[data-photo-remove]');if(b)photoDelete(b.dataset.photoRemove).then(refreshFormPhotos).catch(()=>toast('Suppression impossible'))});
 function wd(){const p=PJ(),l=p&&p.lines.find(y=>y.id===curW);if(!l)return go(p?'proj':'list');
 const r=calc(l),pp=priceOf(l),av=r.a&&aV(r),keys=[...new Set(r.c.map(c=>c[3]))].concat('verre',r.a?['plaque']:[]),seen={},row=(k,t,v)=>{const d=seen[k]?'':`<small>${KEY[k][1]}</small>`;seen[k]=1;return`<div class="pt" style="--c:var(${KEY[k][2]})"><i></i><div><b>${t}</b>${d}</div><span>${v}</span></div>`};
 $('#wdv').innerHTML=`<div class="dh"><div><small>${esc(p.name)}, ${l.qty} pièce${l.qty>1?'s':''}, ${l.couleur}</small><h1>${r.nm}</h1></div><button class="btn" id="ed">Modifier</button></div>
 <div class="dg sk"><div class="card"><div class="pd" id="dsch">${plan(l,r)}</div><div class="lg">${keys.map(k=>`<button class="lgi" data-k="${k}" style="--c:var(${KEY[k][2]})"><i></i>${KEY[k][0]}</button>`).join('')}</div><p class="note">Touchez une pièce pour la repérer sur le schéma. Baie: ${dims(l)}. Les noms et la position des montants peuvent varier selon la série de profilés.</p></div>
-<div class="card">${r.warn.map(w=>`<p class="fe" style="margin:0 0 8px">${w}</p>`).join('')}${pp==null?'':`<div class="rh"><small>Prix de vente</small><div class="big">${m(pp)}</div></div>`}${kp(r,l)}<h3>Aluminium à couper <em>par fenêtre</em></h3>${cutTable(r.c.map(c=>[c[0],c[1]+' pcs',aluNeedText(c[2])]))}<h3>Vitrage <em>largeur × hauteur</em></h3>${cutTable(r.g.map(g=>[g[0]+' · '+l.verre+' mm',(g[1]||'à définir')+' pcs',inchesText(g[2])+' × '+inchesText(g[3])]))}${av?`<h3>Arcade</h3>${cutTable([['Plaque d’arcade','Qté',av.plaque],['Vitre arcade','1 vitre',av.vitre],['Caoutchouc','Qté',av.caout]])}`:''}<button class="btn ghost" id="edit-measures" style="margin-top:16px;width:100%">✎ Modifier les mesures</button><button class="btn ghost" id="dl" style="margin-top:8px;width:100%">Supprimer cette fenêtre</button></div></div>`}
+<div class="card">${r.warn.map(w=>`<p class="fe" style="margin:0 0 8px">${w}</p>`).join('')}${pp==null?'':`<div class="rh"><small>Prix de vente</small><div class="big">${m(pp)}</div></div>`}${kp(r,l)}<h3>Aluminium à couper <em>par fenêtre</em></h3>${cutTable(r.c.map(c=>[c[0],c[1]+' pcs',aluNeedText(c[2])]))}<h3>Vitrage <em>largeur × hauteur</em></h3>${cutTable(r.g.map(g=>[g[0]+' · '+l.verre+' mm',(g[1]||'à définir')+' pcs',inchesText(g[2])+' × '+inchesText(g[3])]))}${av?`<h3>Arcade</h3>${cutTable([['Plaque d’arcade','Qté',av.plaque],['Vitre arcade','1 vitre',av.vitre],['Caoutchouc','Qté',av.caout]])}`:''}<details class="window-photo-detail"><summary><span class="window-photo-summary"><strong>Photos de la baie</strong><small>Retrouvez ou ajoutez les photos de cette fenêtre.</small></span><span class="window-photo-chevron" aria-hidden="true"></span></summary><div class="window-photo-actions"><button type="button" class="window-photo-btn photo-camera" id="detail-photo-camera">Prendre une photo</button><button type="button" class="window-photo-btn photo-gallery" id="detail-photo-gallery">Choisir une photo</button><input type="file" id="detail-photo-camera-input" accept="image/*" capture="environment" hidden><input type="file" id="detail-photo-gallery-input" accept="image/*" multiple hidden></div><div class="window-photo-preview" id="window-photo-detail-preview" data-photo-key="${esc(l._photoKey||'')}"></div></details>
+<button class="btn ghost" id="edit-measures" style="margin-top:12px;width:100%">Modifier les mesures</button><button class="btn ghost" id="dl" style="margin-top:8px;width:100%">Supprimer cette fenêtre</button></div></div>`}
+document.addEventListener('click',e=>{if(e.target.closest('#detail-photo-camera'))$('#detail-photo-camera-input')?.click();if(e.target.closest('#detail-photo-gallery'))$('#detail-photo-gallery-input')?.click();const rm=e.target.closest('[data-photo-remove]');if(rm&&$('#window-photo-detail-preview')?.contains(rm)){photoDelete(rm.dataset.photoRemove).then(refreshDetailPhotos).catch(()=>toast('Suppression impossible'))}});
+document.addEventListener('change',e=>{const isCam=e.target.id==='detail-photo-camera-input',isGal=e.target.id==='detail-photo-gallery-input';if(!isCam&&!isGal)return;const p=PJ(),l=p&&p.lines.find(y=>y.id===curW);if(!l)return;if(!l._photoKey){l._photoKey='win_'+l.id;saveM()}(async()=>{for(const file of Array.from(e.target.files||[])){if(!(file.type||'image/jpeg').startsWith('image/')||file.size>20*1024*1024){toast('Image invalide ou supérieure à 20 Mo.');continue}try{await photoAdd(l._photoKey,file)}catch(err){toast('Impossible d’enregistrer cette photo. Vérifiez l’espace disponible.')}}await refreshDetailPhotos()})();e.target.value=''});
 let activeClientId=null;
 function clis(){activeClientId=null;$('#cl').hidden=false;$('#client-detail').hidden=true;$('#cl').innerHTML=C.map(c=>{const ps=M.filter(p=>p.cid===c.id),F=ps.map(fin),bal=F.reduce((a,x)=>a+Math.max(0,x.bal),0),contact=c.phone||c.email||'';return`<button class="it n2 client-list-card" data-c="${c.id}"><span class="client-list-main"><b class="client-list-name">${esc(c.name)}</b><span class="client-list-meta">${contact?`<span class="client-info-tag contact">${c.phone?'☎':'✉'} ${esc(contact)}</span>`:'<span class="client-info-tag">Contact non renseigné</span>'}<span class="client-info-tag projects">▦ ${ps.length} projet${ps.length!==1?'s':''}</span></span>${ps.length?`<span class="client-info-tag" style="align-self:flex-start">Dernier projet : ${esc(ps.slice().sort((a,b)=>(b.d||0)-(a.d||0))[0].name)}</span>`:''}</span><span class="client-list-balance"><b>${m(bal)}</b><small>À recevoir</small></span></button>`}).join('')||'<small>Aucun client pour le moment.</small>'}
 function clientDetail(id,opts={}){const c=C.find(x=>x.id===id);if(!c)return clis();if(!opts.fromPop&&!(history.state&&history.state.nexaClientDetail&&history.state.clientId===id)){try{if(history.state&&history.state.nexaModal)history.replaceState({...history.state,nexaModal:false,modal:false},'', '#cli');history.pushState({nexaRoute:'cli',nexaClientDetail:true,clientId:id,modal:false},'', '#cli-client-'+id)}catch(e){}}activeClientId=id;const ps=M.filter(p=>p.cid===id).sort((a,b)=>b.d-a.d),fs=ps.map(fin),sum=k=>fs.reduce((a,f)=>a+f[k],0),ca=sum('ca'),paid=sum('paid'),bal=ps.reduce((a,p)=>a+Math.max(0,fin(p).bal),0),paymentHistory=ps.flatMap(p=>(p.pay||[]).map(y=>({...y,project:p}))).sort((a,b)=>b.d-a.d),phone=(c.phone||'').replace(/\D/g,'');
@@ -1388,7 +1457,7 @@ $('#next').onclick=()=>{const st=$('#v-win .st[data-s="'+step+'"]');if(st&&!vall
 if(step<4)return setStep(step+1);const p=PJ();if(!p)return go('list');
 if(editW){const i=p.lines.findIndex(l=>l.id===editW);if(i<0){toast('Cette fenêtre n’existe plus dans le projet.');editW=null;go('proj');return}p.lines[i]={...S,id:editW};curW=editW;toast('Fenêtre modifiée')}else{p.lines.push({...S,id:Date.now()});toast('Fenêtre ajoutée')}
 editW=null;saveM();go('proj')};
-function startWin(){editW=null;S=def();step=1;sync();go('win')}
+function startWin(){editW=null;S=def();S._photoKey='win_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,9);step=1;sync();refreshFormPhotos();go('win')}
 /* ---------- Formulaires en modale ---------- */
 const today=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
 function clientForm(id,after){const c=id?C.find(x=>x.id===id):null;
@@ -1522,7 +1591,7 @@ if(a=c('[data-f]')){flt=a.dataset.f;list();return}
 if(a=c('[data-fq]')){const el=lastMi;if(!el)return toast('Touchez d’abord un champ de mesure');const v=parseM(el.value)||0,w=Math.floor(v+1e-9),q=a.dataset.fq;el.value=q==='0'?String(w||''):(w?w+' ':'')+q;el.dispatchEvent(new Event('input',{bubbles:true}));return}
 if(a=c('.lgi')){const d=$('#dsch');d.dataset.hl=d.dataset.hl===a.dataset.k?'':a.dataset.k;if(!d.dataset.hl)delete d.dataset.hl;$$('.lgi').forEach(b=>b.classList.toggle('on',b.dataset.k===d.dataset.hl));return}
 if(c('#padd')){startWin();return}
-if(c('#ed')){const l=PJ().lines.find(y=>y.id===curW);editW=curW;S={...def(),...l};step=2;sync();go('win');return}
+if(c('#ed')){const l=PJ().lines.find(y=>y.id===curW);editW=curW;S={...def(),...l};if(!S._photoKey)S._photoKey='win_'+l.id;step=2;sync();refreshFormPhotos();go('win');return}
 if(c('#edit-measures')){editWindowMeasures();return}
 if(c('#dl')){ask('Supprimer cette fenêtre ?','<p>Cette fenêtre sera retirée du projet. Cette action est définitive.</p>','Supprimer',()=>{const p=PJ();p.lines=p.lines.filter(y=>y.id!==curW);saveM();toast('Fenêtre supprimée');go('proj')});return}
 if(c('#pedit')){projForm();return}
@@ -1640,6 +1709,30 @@ refreshUnits();sync();newv();go('home',{replace:true});
  document.addEventListener('focusout',()=>setTimeout(fitModal,120));
  const observer=new MutationObserver(()=>{if(!modal.hidden){fitModal();setTimeout(fitModal,80)}else{modal.classList.remove('keyboard-open');modal.style.top='';modal.style.height=''}});
  observer.observe(modal,{attributes:true,attributeFilter:['hidden']});
+})();
+
+
+/* Sélection photo via les champs HTML natifs : compatible WebView Android sans plugin Capacitor. */
+
+/* Galerie photo : aperçu plein écran, navigation tactile et suppression depuis l'image. */
+(function(){
+  const viewer=document.createElement('div');viewer.id='photo-viewer';viewer.innerHTML=`<div class="pv-shell"><div class="pv-top"><span>Photos de la baie</span><span class="pv-count" id="pv-count"></span></div><div class="pv-stage" id="pv-stage"><button type="button" class="pv-nav pv-prev" id="pv-prev" aria-label="Photo précédente">‹</button><img class="pv-image" id="pv-image" alt="Photo de la baie"><button type="button" class="pv-nav pv-next" id="pv-next" aria-label="Photo suivante">›</button></div><div class="pv-actions"><button type="button" class="pv-delete" id="pv-delete">Supprimer cette photo</button><button type="button" class="pv-close" id="pv-close">Fermer</button></div></div>`;
+  document.body.appendChild(viewer);
+  let list=[],index=0,key='',origin='detail',urls=[];
+  const $v=id=>viewer.querySelector('#'+id);
+  function cleanup(){urls.forEach(u=>URL.revokeObjectURL(u));urls=[]}
+  function render(){if(!list.length){close();return}cleanup();const item=list[index];const url=URL.createObjectURL(item.blob);urls.push(url);$v('pv-image').src=url;$v('pv-count').textContent=(index+1)+' / '+list.length;$v('pv-prev').style.display=list.length>1?'grid':'none';$v('pv-next').style.display=list.length>1?'grid':'none'}
+  function close(){viewer.classList.remove('open');$v('pv-image').removeAttribute('src');cleanup()}
+  async function open(k,id,where){key=k;origin=where;try{list=await photoAll(key);index=Math.max(0,list.findIndex(x=>String(x.id)===String(id)));if(!list.length)return;viewer.classList.add('open');render()}catch(e){toast('Impossible d’ouvrir cette photo.')}}
+  function move(n){if(!list.length)return;index=(index+n+list.length)%list.length;render()}
+  document.addEventListener('click',e=>{const img=e.target.closest('.window-photo-thumb');if(!img)return;const wrap=img.closest('.window-photo-thumb-wrap'),id=img.dataset.photoId;const box=img.closest('#window-photo-preview,#window-photo-detail-preview');let k=box?.dataset.photoKey;if(!k&&box?.id==='window-photo-preview')k=window.S&&S._photoKey;if(!k&&box?.id==='window-photo-detail-preview')k=box.dataset.photoKey;if(k&&id)open(k,id,box.id==='window-photo-preview'?'form':'detail')});
+  $v('pv-prev').addEventListener('click',()=>move(-1));$v('pv-next').addEventListener('click',()=>move(1));$v('pv-close').addEventListener('click',close);
+  viewer.addEventListener('click',e=>{if(e.target===viewer)close()});
+  $v('pv-delete').addEventListener('click',async()=>{if(!list[index])return;const id=list[index].id;try{await photoDelete(id);list.splice(index,1);if(index>=list.length)index=list.length-1;if(origin==='form')await refreshFormPhotos();else await refreshDetailPhotos();if(list.length)render();else close();toast('Photo supprimée')}catch(e){toast('Suppression impossible')}});
+  let startX=0;const stage=$v('pv-stage');stage.addEventListener('touchstart',e=>{startX=e.changedTouches[0].clientX},{passive:true});stage.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-startX;if(Math.abs(dx)>45)move(dx<0?1:-1)},{passive:true});
+  document.addEventListener('keydown',e=>{if(!viewer.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')move(-1);if(e.key==='ArrowRight')move(1)});
+  // Les miniatures ne portent plus de croix : toucher une photo ouvre la galerie.
+  window.photoMarkup=function(items){return items.length?items.map(x=>{const u=URL.createObjectURL(x.blob);return `<span class="window-photo-thumb-wrap"><img class="window-photo-thumb" data-photo-id="${String(x.id).replace(/"/g,'')}" src="${u}" alt="Photo de la baie"></span>`}).join(''):'<small class="window-photo-empty">Aucune photo ajoutée pour le moment.</small>'};
 })();
 
 </script>
